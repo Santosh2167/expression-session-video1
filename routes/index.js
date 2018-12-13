@@ -24,4 +24,6 @@ router.post("/register",celebrate({
     }
 }),authenticationController.create);
 
+router.get("/dashboard",pageController.dashboard);
+
 module.exports = router;

@@ -3,4 +3,4 @@ const UserSchema = require("./../schemas/user_schema");
 
 const UserModel = mongoose.model("user",UserSchema);
 
-model.exports = UserModel;
+module.exports = UserModel;

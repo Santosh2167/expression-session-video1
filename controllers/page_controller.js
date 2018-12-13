@@ -3,7 +3,13 @@ function index(req,res) {
  res.json(req.session.views);   
 }
 
+function dashboard(req,res){
+
+    res.json(req.session.user);
+
+}
 
 module.exports = {
-    index
+    index,
+    dashboard
 }
