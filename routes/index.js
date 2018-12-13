@@ -3,6 +3,10 @@ const router = express.Router();
 const pageController = require("./../controllers/page_controller");
 const authenticationController = require("./../controllers/authentication_controller");
 const {celebrate, Joi } = require("celebrate");
+const {authorize, authRedirect} = require("./../middleware/authentication_middleware");
+
+router.use("/register",authRedirect);
+router.use("/login",authRedirect);
 
 router.get("/", pageController.index);
 
@@ -24,7 +28,7 @@ router.post("/register",celebrate({
     }
 }),authenticationController.create);
 
-router.get("/dashboard",pageController.dashboard);
+router.get("/dashboard",authorize,pageController.dashboard);
 
 router.get("/logout",authenticationController.logout)
 
