@@ -26,9 +26,18 @@ async function create(req,res){
 
 }
 
+function logout(req,res){
+    req.session.destroy(()=> {
+        res.redirect("/");
+
+    });
+
+}
+
 module.exports = {
     loginForm,
     loginVerify,
     make,
-    create
+    create,
+    logout
 }
