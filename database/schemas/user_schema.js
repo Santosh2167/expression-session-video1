@@ -11,10 +11,11 @@ const UserSchema = new Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        bcrypt: true
 
     }
 
 });
-
+UserSchema.plugin(require("mongoose-bcrypt"));
 module.exports = UserSchema;
